@@ -1,6 +1,6 @@
 # Ecommerce API
 
-API REST desenvolvida com Spring Boot para estudo de estrutura em camadas com persistência relacional usando H2.
+API REST desenvolvida com Spring Boot para estudo de estrutura em camadas com persistencia relacional usando H2.
 
 ## Stack
 
@@ -16,36 +16,38 @@ API REST desenvolvida com Spring Boot para estudo de estrutura em camadas com pe
 
 - Arquitetura em camadas: `controller -> service -> repository`
 - Repository Pattern com `JpaRepository`
-- Injeção de dependência com Spring
+- Injecao de dependencia com Spring
 - Mapeamento ORM com JPA/Hibernate
 - Seed de dados no startup com `CommandLineRunner`
 
 ## Entidades
 
-- `Costumer`
-  - `id`
-  - `name`
-  - `email`
-  - relacionamento `OneToMany` com `Order`
+```text
+Costumer
+  id
+  name
+  email
+  orders -> OneToMany com Order
 
-- `Order`
-  - `id`
-  - `totalValue`
-  - `consumer`
-  - `date`
-  - `orderStatus`
-  - relacionamento `ManyToMany` com `Product`
+Order
+  id
+  totalValue
+  consumer
+  date
+  orderStatus
+  products -> ManyToMany com Product
 
-- `Product`
-  - `id`
-  - `name`
-  - `price`
+Product
+  id
+  name
+  price
 
-- `OrderStatus`
-  - `WAITING_PAYMENT`
-  - `PAID`
-  - `SHIPPED`
-  - `CANCELED`
+OrderStatus
+  WAITING_PAYMENT
+  PAID
+  SHIPPED
+  CANCELED
+```
 
 ## Endpoints
 
@@ -54,19 +56,19 @@ API REST desenvolvida com Spring Boot para estudo de estrutura em camadas com pe
 
 ## Banco de Dados
 
-- Banco em memória com H2
+- Banco em memoria com H2
 - Console habilitado em `/h2-console`
 - JDBC URL: `jdbc:h2:mem:ecommerce`
 
 ## Dados Iniciais
 
-Ao iniciar a aplicação, o projeto persiste dados de teste automaticamente:
+Ao iniciar a aplicacao, o projeto persiste dados de teste automaticamente:
 
 - 2 clientes
 - 3 produtos
 - 2 pedidos
 
-## Execução
+## Execucao
 
 ```bash
 ./mvnw spring-boot:run
