@@ -36,7 +36,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(
             name = "tb_order_product",
             joinColumns = @JoinColumn(name = "order_id"),
